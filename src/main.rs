@@ -115,7 +115,8 @@ fn run() {
         Some(("hash", sub_m)) => {
             let file_path = sub_m.get_one::<String>("file").unwrap();
             let hashes = sub_m.get_one::<String>("hashes").unwrap();
-            hashing::file_hash::hash_file(file_path, hashes);
+            let hash_result = hashing::file_hash::hash_file(file_path, hashes);
+            println!("Hash result: {}", hash_result);
         }
         Some(("encrypt", sub_m)) => {
             let input_filename = sub_m.get_one::<String>("input-filename").unwrap();
